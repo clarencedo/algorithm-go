@@ -1,6 +1,8 @@
 package leetcode
 
-import "math"
+import (
+	"math"
+)
 
 // 转换为查找mid>mid+1的元素，找了之后
 // mid不一定是峰值，有可能它正处于下降的区间，mid左边的值大于mid
@@ -41,6 +43,6 @@ func findPeakElementII(nums []int) int {
 			right = mid - 1
 		}
 	}
-	return 0
 
+	return 0
 }
