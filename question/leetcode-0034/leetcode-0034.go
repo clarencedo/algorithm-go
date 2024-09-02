@@ -15,7 +15,7 @@ func leftBound(nums []int, target int) int {
 		} else if nums[mid] > target {
 			right = mid - 1
 		} else if nums[mid] == target {
-			// 别返回，继续往左边找，锁定左侧边界
+			// 缩减右边界,继续往左边找,锁定左侧边界
 			right = mid - 1
 		}
 	}
@@ -34,7 +34,7 @@ func rightBound(nums []int, target int) int {
 		} else if nums[mid] > target {
 			right = mid - 1
 		} else if nums[mid] == target {
-			// 别返回，继续往右边找，锁定右侧边界
+			// 缩减左边界,继续往右边找,锁定右侧边界
 			left = mid + 1
 		}
 	}
