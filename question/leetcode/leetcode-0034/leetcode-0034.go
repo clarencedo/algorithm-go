@@ -1,4 +1,4 @@
-package question
+package leetcode
 
 func searchRange(nums []int, target int) []int {
 	leftIndex := leftBound(nums, target)
