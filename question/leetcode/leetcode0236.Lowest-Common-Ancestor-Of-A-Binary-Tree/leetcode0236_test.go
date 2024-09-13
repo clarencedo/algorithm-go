@@ -1,10 +1,9 @@
 package leetcode
 
 import (
+	"clarencedu/algorithm-go/structure"
 	"fmt"
 	"testing"
-
-	"github.com/halfrost/LeetCode-Go/structures"
 )
 
 type question236 struct {
@@ -36,22 +35,22 @@ func Test_Problem236(t *testing.T) {
 		},
 
 		{
-			para236{[]int{3, 5, 1, 6, 2, 0, 8, structures.NULL, structures.NULL, 7, 4}, []int{5}, []int{1}},
+			para236{[]int{3, 5, 1, 6, 2, 0, 8, structure.NULL, structure.NULL, 7, 4}, []int{5}, []int{1}},
 			ans236{[]int{3}},
 		},
 
 		{
-			para236{[]int{3, 5, 1, 6, 2, 0, 8, structures.NULL, structures.NULL, 7, 4}, []int{5}, []int{4}},
+			para236{[]int{3, 5, 1, 6, 2, 0, 8, structure.NULL, structure.NULL, 7, 4}, []int{5}, []int{4}},
 			ans236{[]int{5}},
 		},
 
 		{
-			para236{[]int{6, 2, 8, 0, 4, 7, 9, structures.NULL, structures.NULL, 3, 5}, []int{2}, []int{8}},
+			para236{[]int{6, 2, 8, 0, 4, 7, 9, structure.NULL, structure.NULL, 3, 5}, []int{2}, []int{8}},
 			ans236{[]int{6}},
 		},
 
 		{
-			para236{[]int{6, 2, 8, 0, 4, 7, 9, structures.NULL, structures.NULL, 3, 5}, []int{2}, []int{4}},
+			para236{[]int{6, 2, 8, 0, 4, 7, 9, structure.NULL, structure.NULL, 3, 5}, []int{2}, []int{4}},
 			ans236{[]int{2}},
 		},
 	}
@@ -61,9 +60,9 @@ func Test_Problem236(t *testing.T) {
 	for _, q := range qs {
 		_, p := q.ans236, q.para236
 		fmt.Printf("【input】:%v      ", p)
-		rootOne := structures.Ints2TreeNode(p.one)
-		rootTwo := structures.Ints2TreeNode(p.two)
-		rootThr := structures.Ints2TreeNode(p.thr)
+		rootOne := structure.Ints2TreeNode(p.one)
+		rootTwo := structure.Ints2TreeNode(p.two)
+		rootThr := structure.Ints2TreeNode(p.thr)
 		fmt.Printf("【output】:%v      \n", lowestCommonAncestor236(rootOne, rootTwo, rootThr))
 	}
 	fmt.Printf("\n\n\n")
