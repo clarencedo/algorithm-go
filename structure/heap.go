@@ -1,4 +1,4 @@
-package structures
+package structure
 
 // intHeap 实现了最小堆 heap 的接口
 type intHeap []int
