@@ -15,8 +15,8 @@ func insert(aNode *Node, x int) *Node {
 		node.Next = aNode
 		return aNode
 	}
-	cur := aNode
-	next := aNode.Next
+
+	cur, next := aNode, aNode.Next
 	for next != aNode {
 		if x >= cur.Val && x <= next.Val {
 			break
@@ -28,5 +28,6 @@ func insert(aNode *Node, x int) *Node {
 		cur, next = next, next.Next
 	}
 	cur.Next = &Node{Val: x, Next: next}
+
 	return aNode
 }
