@@ -2,8 +2,6 @@ package leetcode
 
 import (
 	"clarencedu/algorithm-go/structure"
-	"sort"
-	"fmt"
 )
 type TreeNode = structure.TreeNode
 
