@@ -2,7 +2,9 @@ package leetcode
 
 import (
 	"clarencedu/algorithm-go/structure"
+	"sort"
 )
+
 type TreeNode = structure.TreeNode
 
 // type Pair = structure.Pair
@@ -34,13 +36,15 @@ func verticalOrder(root *TreeNode) [][]int {
 			queue = append(queue, structure.Pair[*structure.TreeNode, int]{Key: node.Right, Value: column + 1})
 		}
 	}
+
+	// sort.Ints(columnTable)
 	sortedKeys := make([]int, 0, len(columnTable))
-	for k := range columnTable{}
+	for k := range columnTable {
 		sortedKeys = append(sortedKeys, k)
 	}
-	for _ ,k := range sortedKeys{
-	res = append(res, columnTable[k])
+	sort.Ints(sortedKeys)
+	for _, k := range sortedKeys {
+		res = append(res, columnTable[k])
 	}
-
-return res
+	return res
 }
