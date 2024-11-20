@@ -1,6 +1,6 @@
 package template
 
-func QuickSort(arr []int) []int {
+func quickSort(arr []int) []int {
 	if len(arr) <= 1 {
 		return arr
 	}
@@ -15,8 +15,8 @@ func QuickSort(arr []int) []int {
 			right = append(right, arr[i])
 		}
 	}
-	left = QuickSort(left)
-	right = QuickSort(right)
+	left = quickSort(left)
+	right = quickSort(right)
 
 	return append(append(left, pivot), right...)
 }
