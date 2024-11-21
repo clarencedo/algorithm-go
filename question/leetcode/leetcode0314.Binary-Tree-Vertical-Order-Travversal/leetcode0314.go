@@ -7,11 +7,56 @@ import (
 
 type TreeNode = structure.TreeNode
 
-// type Pair = structure.Pair
+type NodeWithCol struct {
+	node *TreeNode
+	col  int
+}
 
-// 解法一： BFS， 每个节点记录一个 行列坐标 row,column
-// root 为0,0 ，左字节点为1,-1，右字节点为1,1
 func verticalOrder(root *TreeNode) [][]int {
+	if root == nil {
+		return nil
+	}
+
+	columnTable := make(map[int][]int)
+
+	queue := []NodeWithCol{{root, 0}}
+
+	minCol, maxCol := 0, 0
+
+	for len(queue) > 0 {
+		current := queue[0]
+		queue = queue[1:]
+
+		node, col := current.node, current.col
+
+		columnTable[col] = append(columnTable[col], node.Val)
+
+		if col < minCol {
+			minCol = col
+		}
+		if col > maxCol {
+			maxCol = col
+		}
+
+		if node.Left != nil {
+			queue = append(queue, NodeWithCol{node.Left, col - 1})
+		}
+		if node.Right != nil {
+			queue = append(queue, NodeWithCol{node.Right, col + 1})
+		}
+
+	}
+	res := [][]int{}
+	for col := minCol; col <= maxCol; col++ {
+		res = append(res, columnTable[col])
+	}
+
+	return res
+}
+
+// BFS， 每个节点记录一个 行列坐标 row,column
+// root 为0,0 ，左字节点为1,-1，右字节点为1,1
+func verticalOrderII(root *TreeNode) [][]int {
 	res := [][]int{}
 	if root == nil {
 		return res
