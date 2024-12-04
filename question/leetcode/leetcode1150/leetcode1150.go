@@ -56,44 +56,12 @@ func isMajorityElementIII(nums []int, target int) bool {
 
 // 二分查找找到目标数字的左右边界，然后计算个数
 func isMajorityElementIV(nums []int, target int) bool {
-	if len(nums) == 1 {
-		return nums[0] == target
-	}
-
-	left, right := 0, len(nums)-1
-	for left < right {
-		mid := left + (right-left)/2
-		if nums[mid] < target {
-			left = mid + 1
-		} else {
-			right = mid
-		}
-	}
-
-	if nums[left] != target {
-		return false
-	}
-
-	left, right = 0, len(nums)-1
-	for left < right {
-		mid := left + (right-left)/2
-		if nums[mid] <= target {
-			left = mid + 1
-		} else {
-			right = mid
-		}
-	}
-
-	return right-left > len(nums)/2
-}
-
-func isMajorityElementIV2(nums []int, target int) bool {
 	left, right := binarySearchLeft(nums, target), binarySearchRight(nums, target)
 	return left != -1 && right != -1 && right-left+1 > len(nums)/2
 }
 
 func binarySearchLeft(nums []int, target int) int {
-	l, r := 0, len(nums)
+	l, r := 0, len(nums)-1
 
 	for l <= r {
 		mid := l + (r-l)>>1
@@ -110,7 +78,7 @@ func binarySearchLeft(nums []int, target int) int {
 }
 
 func binarySearchRight(nums []int, target int) int {
-	l, r := 0, len(nums)
+	l, r := 0, len(nums)-1
 	for l <= r {
 		mid := l + (r-l)>>1
 		if nums[mid] <= target {
