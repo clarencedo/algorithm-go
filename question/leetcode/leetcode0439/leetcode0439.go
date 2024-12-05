@@ -77,3 +77,38 @@ func parseTernaryII(expression string) string {
 	// 从完整表达式开始递归解析
 	return helper(expression, 0, len(expression)-1)
 }
+
+func parseTernaryIII(expression string) string {
+	return helper(expression, 0, len(expression)-1)
+}
+
+func helper(expression string, start, end int) string {
+	// base case
+	if start == end {
+		return string(expression[start])
+	}
+
+	questionMark := start
+	for expression[questionMark] != '?' {
+		questionMark++
+	}
+
+	condition := expression[questionMark-1]
+
+	colon := questionMark + 1
+	balance := 1
+	for balance > 0 {
+		if expression[colon] == '?' {
+			balance++
+		} else if expression[colon] == ':' {
+			balance--
+		}
+		colon++
+	}
+	colon--
+
+	if condition == 'T' {
+		return helper(expression, questionMark+1, colon-1)
+	}
+	return helper(expression, colon+1, end)
+}

@@ -44,7 +44,15 @@
 
 ## 解题思路
 
+### 栈
+- 从右向左遍历表达式，遇到数字直接入栈
+- 这样可以在遇到 `?` 时，直接弹出栈顶两个元素，计算 `condition` 的值，如果为真，入栈 `true_case`
+的值，否则入栈 `false_case` 的值
 
+### 递归
+- 遇到?开始拆解表达式，分割为 `condition` 和 `true_case` 和 `false_case` 三部分
+- 递归计算 `condition` 的值，如果为真，递归计算 `true_case` 的值，否则递归计算 `false_case` 的值
+- 在计算`true_case`和`false_case`的时候继续拆解直到没有`?`
 
 
 ## 对比递归和迭代
