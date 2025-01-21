@@ -12,11 +12,11 @@
 
     输入：root = [4,2,5,1,3]
 
-![case1](./1.png)
+![case1](../../../resources/leetcode/leetcode0426/1.png)
 
     输出：[1,2,3,4,5]
 
-![case2](./2.png)
+![case2](./../../../resources/leetcode/leetcode0426/2.png)
 
     解释：下图显示了转化后的二叉搜索树，实线表示后继关系，虚线表示前驱关系。
 
