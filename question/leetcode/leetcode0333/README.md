@@ -16,7 +16,7 @@
 
 **示例 1：**
 
-![case1](./1.jpg)
+![case1](./../../../resources/leetcode/leetcode0333/1.jpg)
 
     输入：root = [1,2,3,4,5]
     输出：[4,5,2,null,null,3,1]
