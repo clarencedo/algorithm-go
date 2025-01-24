@@ -26,6 +26,7 @@ func widthOfBinaryTree(root *TreeNode) int {
 			node := queue[i]
 			index := levelQueue[i] - minIndex
 
+			//数组存储的方式，左子节点的索引是2*当前索引+1, 右子节点的索引是2*当前索引+2
 			if node.Left != nil {
 				queue = append(queue, node.Left)
 				levelQueue = append(levelQueue, 2*index+1)
