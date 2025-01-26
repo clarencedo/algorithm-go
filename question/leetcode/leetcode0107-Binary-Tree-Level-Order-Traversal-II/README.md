@@ -5,11 +5,9 @@
 
 给你二叉树的根节点 `root` ，返回其节点值 **自底向上的层序遍历** 。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
 
-
-
 **示例 1：**
 
-   [![case1](https://assets.leetcode.com/uploads/2021/02/19/tree1.jpg)](https://assets.leetcode.com/uploads/2021/02/19/tree1.jpg)
+[![case1](https://assets.leetcode.com/uploads/2021/02/19/tree1.jpg)](https://assets.leetcode.com/uploads/2021/02/19/tree1.jpg)
 
     输入：root = [3,9,20,null,null,15,7]
     输出：[[15,7],[9,20],[3]]
@@ -23,7 +21,6 @@
 
     输入：root = []
     输出：[]
-
 
 **提示：**
 
