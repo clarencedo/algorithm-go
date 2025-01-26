@@ -1,4 +1,5 @@
 # [107.二叉树的层序遍历II](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
+# [107.Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)
 
 ## 题目
 
@@ -28,3 +29,15 @@
 
 - 树中节点数目在范围 `[0, 2000]` 内
 - `-1000 <= Node.val <= 1000`
+
+
+## 题目大意
+
+按层序从下到上遍历一颗树。
+
+## 解题思路
+
+用一个队列即可实现。
+
+
+
