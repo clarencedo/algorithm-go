@@ -1,4 +1,5 @@
 # [1019. Next Greater Node In Linked List](https://leetcode.com/problems/next-greater-node-in-linked-list/)
+# [1019. 链表中的下一个更大节点](https://leetcode.cn/problems/next-greater-node-in-linked-list/description/)
 
 ## 题目
 
@@ -46,6 +47,7 @@ Note:
 
 ## 解题思路
 
-这一题和第 739 题、第 496 题、第 503 题类似。也有 2 种解题方法。先把链表中的数字存到数组中，整道题的思路就和第 739 题完全一致了。普通做法就是 2 层循环。优化的做法就是用单调栈，维护一个单调递减的栈即可。
+这一题和第 739 题、第 496 题、第 503 题类似。也有 2 种解题方法。先把链表中的数字存到数组中，整道题的思路就和第 739 题完全一致了。
+普通做法就是 2 层循环 **O(n<sup>2</sup>)**。优化的做法就是用单调栈，维护一个单调递减的栈即可 **O(n)**。
 
 

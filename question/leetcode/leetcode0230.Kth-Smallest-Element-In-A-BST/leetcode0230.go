@@ -13,6 +13,7 @@ import (
  *     Right *TreeNode
  * }
  */
+
 type TreeNode = structure.TreeNode
 
 func kthSmallest(root *TreeNode, k int) int {

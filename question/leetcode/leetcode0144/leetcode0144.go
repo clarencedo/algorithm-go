@@ -27,3 +27,12 @@ func inorder(node *TreeNode, res *[]int) {
 	*res = append(*res, node.Val)
 	inorder(node.Right, res)
 }
+
+func postorder(node *TreeNode, res *[]int) {
+	if node == nil {
+		return
+	}
+	postorder(node.Left, res)
+	postorder(node.Right, res)
+	*res = append(*res, node.Val)
+}
