@@ -1,12 +1,12 @@
 package leetcode
 
+// TODO: not implemented
 type ImmutableListNode struct {
 	Val int
 }
 
 func (this *ImmutableListNode) getNext() ImmutableListNode {
 	return ImmutableListNode{}
-
 }
 
 func (this *ImmutableListNode) printValue() {
