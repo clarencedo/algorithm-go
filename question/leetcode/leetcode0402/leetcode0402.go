@@ -16,9 +16,10 @@ func removeKdigits(nums string, k int) string {
 		}
 		stack = append(stack, nums[i])
 	}
-
+	// 结束遍历时 可能还有删除次数，或者是最左以0开头
 	// 如果 k > 0，说明还有删除次数，继续删除
 	stack = stack[:len(stack)-k]
+	// 删除掉前导0
 	ans := strings.TrimLeft(string(stack), "0")
 	if ans == "" {
 		ans = "0"
