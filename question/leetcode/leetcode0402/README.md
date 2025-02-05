@@ -1,5 +1,7 @@
 # [402. Remove K Digits](https://leetcode.com/problems/remove-k-digits/)
 
+# [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/)
+
 ## 题目
 
 Given a non-negative integer num represented as a string, remove k digits from the number so that the new number is the smallest possible.
