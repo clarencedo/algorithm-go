@@ -1,6 +1,8 @@
 package leetcode
 
 // 解法一： 双指针
+// 时间复杂度 O(n^2)
+// 空间复杂度 O(1)
 func trap(height []int) int {
 	sum := 0
 	for i := 1; i < len(height)-1; i++ {
@@ -30,8 +32,30 @@ func trap(height []int) int {
 	return sum
 }
 
-// 解法二： 动态规划
+// 解法二： 双指针优化，一次遍历
+// 时间复杂度 O(n)
+// 空间复杂度 O(1)
 func trapII(height []int) (ans int) {
+	left, right := 0, len(height)-1
+	leftMax, rightMax := 0, 0
+	for left < right {
+		leftMax = max(leftMax, height[left])
+		rightMax = max(rightMax, height[right])
+		if height[left] < height[right] {
+			ans += leftMax - height[left]
+			left++
+		} else {
+			ans += rightMax - height[right]
+			right--
+		}
+	}
+	return
+}
+
+// 解法二： 动态规划
+// 时间复杂度 O(n)
+// 空间复杂度 O(n)
+func trapIII(height []int) (ans int) {
 	n := len(height)
 	if n == 0 {
 		return
@@ -56,7 +80,9 @@ func trapII(height []int) (ans int) {
 }
 
 // 解法三： 单调栈
-func trapIII(height []int) (ans int) {
+// 时间复杂度 O(n)
+// 空间复杂度 O(n)
+func trapIV(height []int) (ans int) {
 	stack := []int{}
 	for i, h := range height {
 		for len(stack) > 0 && h > height[stack[len(stack)-1]] {
