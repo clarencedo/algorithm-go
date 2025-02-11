@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    def validateStackSequences(pushed: List[int], popped: List[int]) -> bool:
+    def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
         stack = []
         i = 0
         for v in pushed:
