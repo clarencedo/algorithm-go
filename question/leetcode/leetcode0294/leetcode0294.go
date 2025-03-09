@@ -24,3 +24,7 @@ func dfs(currentState string, memo map[string]bool) bool {
 	memo[currentState] = false
 	return false
 }
+
+// 动态规划
+// dp[i]表示当前状态下，是否是必胜态
+// dp[i] =any()
