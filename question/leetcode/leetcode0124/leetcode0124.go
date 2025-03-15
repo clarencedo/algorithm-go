@@ -31,7 +31,7 @@ func getPathSum(root *TreeNode, maxSum *int) int {
 var maxSum int
 
 func maxPathSumII(root *TreeNode) int {
-	maxSum := math.MinInt32
+	maxSum = math.MinInt32
 	dfs(root)
 	return maxSum
 }
