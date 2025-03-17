@@ -61,12 +61,14 @@ func trapIII(height []int) (ans int) {
 		return
 	}
 
+	// 计算每个柱子左右两边的最大高度
 	leftMax := make([]int, n)
 	leftMax[0] = height[0]
 	for i := 1; i < n; i++ {
 		leftMax[i] = max(leftMax[i-1], height[i])
 	}
 
+	// 计算每个柱子右边的最大高度
 	rightMax := make([]int, n)
 	rightMax[n-1] = height[n-1]
 	for i := n - 2; i >= 0; i-- {
@@ -83,8 +85,10 @@ func trapIII(height []int) (ans int) {
 // 时间复杂度 O(n)
 // 空间复杂度 O(n)
 func trapIV(height []int) (ans int) {
+	// 单调递减栈
 	stack := []int{}
 	for i, h := range height {
+		// 栈不为空，且当前柱子高度大于栈顶柱子高度
 		for len(stack) > 0 && h > height[stack[len(stack)-1]] {
 			top := stack[len(stack)-1]
 			stack = stack[:len(stack)-1]
@@ -92,8 +96,11 @@ func trapIV(height []int) (ans int) {
 				break
 			}
 			left := stack[len(stack)-1]
+			// 当前柱子和栈顶柱子之间的距离
 			curWidth := i - left - 1
+			// 当前柱子和栈顶柱子之间的高度差
 			curHeight := min(height[left], h) - height[top]
+			// 计算当前柱子和栈顶柱子之间可以储水的量
 			ans += curWidth * curHeight
 		}
 		stack = append(stack, i)

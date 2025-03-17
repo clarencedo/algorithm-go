@@ -27,3 +27,19 @@ func findNthFromEnd(head *ListNode, n int) *ListNode {
 	}
 	return slow
 }
+
+func removeNthFromEndII(head *ListNode, n int) *ListNode {
+	dummy := &ListNode{0, head}
+	cur := dummy
+	length := 0
+	for ; head != nil; head = head.Next {
+		length++
+	}
+
+	for i := 0; i < length-n; i++ {
+		cur = cur.Next
+	}
+	cur.Next = cur.Next.Next
+
+	return dummy.Next
+}
