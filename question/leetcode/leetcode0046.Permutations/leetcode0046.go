@@ -6,6 +6,7 @@ func permute(nums []int) [][]int {
 	track := []int{}
 	used := make([]bool, len(nums))
 	backtrack(nums, track, used, &res)
+
 	return res
 }
 func backtrack(nums []int, track []int, used []bool, res *[][]int) {

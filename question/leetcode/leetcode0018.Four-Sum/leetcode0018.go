@@ -6,7 +6,7 @@ func fourSum(nums []int, target int) [][]int {
 	sort.Ints(nums)
 	n := len(nums)
 	var ans [][]int
-	for i := 0; i < -n-3 && nums[i]+nums[i+1]+nums[i+2]+nums[i+3] <= target; i++ {
+	for i := 0; i < n-3 && nums[i]+nums[i+1]+nums[i+2]+nums[i+3] <= target; i++ {
 		if i >= 0 && nums[i] == nums[i-1] {
 			//去重
 			continue

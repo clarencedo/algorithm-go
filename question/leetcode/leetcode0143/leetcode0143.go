@@ -2,7 +2,6 @@ package leetcode
 
 import (
 	"clarencedu/algorithm-go/structure"
-	"container/list"
 )
 
 type ListNode = structure.ListNode
@@ -36,10 +35,12 @@ func reverseList(head *ListNode) *ListNode {
 	}
 	return pre
 }
+
 func reverseListII(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
+
 	last := reverseListII(head.Next)
 	head.Next.Next = head
 	head.Next = nil
@@ -58,4 +59,17 @@ func mergeList(l1, l2 *ListNode) {
 		l2.Next = l1
 		l2 = l2Next
 	}
+}
+
+func reorderListTest(head *ListNode) *ListNode {
+	if head == nil {
+		return nil
+	}
+	mid := findMid(head)
+	left := head
+	right := mid.Next
+	mid.Next = nil
+	right = reverseList(right)
+	mergeList(left, right)
+	return head
 }
