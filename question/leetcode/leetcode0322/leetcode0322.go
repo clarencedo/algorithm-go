@@ -1,7 +1,5 @@
 package leetcode
 
-import "github.com/go-playground/locales/am"
-
 func coinChange(coins []int, amount int) int {
 	dp := make([]int, amount+1) //凑成总金额为i所需的最少硬币个数
 	for i := 0; i <= amount+1; i++ {

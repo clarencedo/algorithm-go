@@ -1,7 +1,7 @@
-package main
+package leetcode
 
 // 贪心
-func maxProfit(prices []int) int {
+func maxProfit122(prices []int) int {
 	n := len(prices)
 	profit := 0
 	for i := 1; i < n; i++ {
