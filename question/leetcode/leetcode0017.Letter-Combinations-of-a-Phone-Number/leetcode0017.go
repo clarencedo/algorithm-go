@@ -14,7 +14,6 @@ var phoneMap map[string]string = map[string]string{
 var combinations []string
 
 func letterCombinations(digits string) []string {
-
 	if len(digits) == 0 {
 		return []string{}
 	}
@@ -34,7 +33,3 @@ func leetcode17_backtrack(digits string, index int, combination string) {
 		}
 	}
 }
-
-// func leetcode17II(digits string)[]string{
-//   return []string{}
-// }
