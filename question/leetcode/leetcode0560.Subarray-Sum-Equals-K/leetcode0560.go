@@ -8,10 +8,13 @@ func subarraySum(nums []int, k int) int {
 
 	for _, num := range nums {
 		preSum += num
+		//如果preSum[j]- preSum[i] = k
+		//那么[i+1,...,j]这一段子数组的和为k
 		if _, ok := m[preSum-k]; ok {
 			count += m[preSum-k]
 		}
 		m[preSum]++
 	}
+
 	return count
 }

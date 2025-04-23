@@ -15,13 +15,25 @@ func twoSum(nums []int, target int) []int {
 	return nil
 }
 
+type Pair struct {
+	Val int
+	Idx int
+}
+
 func twoSumII(nums []int, target int) []int {
-	sort.Ints(nums)
-	left, right := 0, len(nums)-1
+	n := len(nums)
+	arr := make([]Pair, n)
+	for i := 0; i < n; i++ {
+		arr[i] = Pair{Val: nums[i], Idx: i}
+	}
+	sort.Slice(arr, func(i, j int) bool {
+		return arr[i].Val < arr[j].Val
+	})
+	left, right := 0, n-1
 	for left < right {
-		sum := nums[left] + nums[right]
+		sum := arr[left].Val + arr[right].Val
 		if sum == target {
-			return []int{left, right}
+			return []int{arr[left].Idx, arr[right].Idx}
 		} else if sum < target {
 			left++
 		} else {

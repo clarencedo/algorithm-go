@@ -3,7 +3,7 @@ package leetcode
 // TODO:
 // 方法一：动态规划
 func maxSubarraySumCircular(nums []int) int {
-	dp := make(chan int, len(nums))
+	// dp := make(chan int, len(nums))
 	return -1
 }
 

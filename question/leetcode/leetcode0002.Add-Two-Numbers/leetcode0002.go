@@ -44,6 +44,7 @@ func addTwoNumbersForward(l1 *ListNode, l2 *ListNode) *ListNode {
 func reverseList(head *ListNode) *ListNode {
 	var prev *ListNode
 	curr := head
+
 	for curr != nil {
 		next := curr.Next
 		curr.Next = prev
