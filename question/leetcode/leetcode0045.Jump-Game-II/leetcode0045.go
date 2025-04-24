@@ -8,9 +8,10 @@ func jump(nums []int) int {
 		dp[i] = math.MaxInt32
 	}
 	dp[0] = 0
+	// 状态转移方程
 	for i := 1; i < len(nums); i++ {
 		for j := 0; j < i; j++ {
-			if nums[j]+j >= i {
+			if nums[j]+j >= i { //是否可以从j直接跳到i
 				dp[i] = min(dp[i], dp[j]+1)
 			}
 		}

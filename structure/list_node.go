@@ -10,6 +10,11 @@ type ListNode struct {
 	Val  int
 	Next *ListNode
 }
+type RandListNode struct {
+	Val    int
+	Next   *RandListNode
+	Random *RandListNode
+}
 
 // List2Ints convert List to []int
 func List2Ints(head *ListNode) []int {

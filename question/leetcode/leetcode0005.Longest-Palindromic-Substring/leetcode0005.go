@@ -68,20 +68,23 @@ func longestPalindromeII(s string) string {
 
 // 解法三：滑动窗口，时间复杂度O(n^2), 空间复杂度O(1)
 func longestPalindromeIII(s string) string {
-	if len(s) == 0 {
-		return ""
+	n := len(s)
+	if n < 2 {
+		return s
 	}
 
-	left, maxLength := 0, len(s)
-	for ; maxLength > 0; maxLength-- {
-		for ; left+maxLength <= len(s); left++ {
-			right := left + maxLength - 1
-			if isPalindrome(s[left : right+1]) {
-				return s[left : right+1]
+	// 从最大可能的窗口开始
+	for windowSize := n; windowSize > 0; windowSize-- {
+		// 滑动窗口
+		for start := 0; start+windowSize <= n; start++ {
+			substr := s[start : start+windowSize]
+			if isPalindrome(substr) {
+				return substr
 			}
 		}
 	}
-	return ""
+
+	return string(s[0]) // 至少返回单个字符
 }
 
 func isPalindrome(s string) bool {

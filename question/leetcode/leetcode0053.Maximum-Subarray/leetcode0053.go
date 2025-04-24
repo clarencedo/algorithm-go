@@ -1,5 +1,6 @@
 package leetcode
 
+// 解法一：贪心,原地修改,nums[i]表示以i结尾的最大子数组和
 func maxSubArray(nums []int) int {
 	max := nums[0]
 
@@ -15,6 +16,7 @@ func maxSubArray(nums []int) int {
 	return max
 }
 
+// 解法二：动态规划
 func dp(nums []int) int {
 	if len(nums) == 0 {
 		return 0
