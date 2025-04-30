@@ -11,6 +11,7 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 		return nil
 	}
 	// a,b代表k个节点的前后节点
+	// 定位当前组的起始(a)和下一组的起始(b)
 	a, b := head, head
 	for i := 0; i < k; i++ {
 		if b == nil {
@@ -23,6 +24,7 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 	return newHead
 }
 
+// 反转[a,b)区间的链表
 func reverse(head *ListNode, target *ListNode) *ListNode {
 	var pre, cur, next *ListNode
 	pre, cur, next = nil, head, head
