@@ -20,31 +20,47 @@ func Consturctor(capacity int) LRUCache {
 	}
 }
 
-func (this *LRUCache) Get(key int) int {
-	if elem, ok := this.cache[key]; ok {
-		this.list.MoveToFront(elem)
+// O(1)
+func (lru *LRUCache) Get(key int) int {
+	if elem, ok := lru.cache[key]; ok {
+		lru.list.MoveToFront(elem)
 		return elem.Value.(Pair).value
 	}
 	return -1
 }
 
-func (this *LRUCache) Put(key int, value int) {
-	if elem, ok := this.cache[key]; ok {
+// O(1)
+func (lru *LRUCache) Put(key int, value int) {
+	if elem, ok := lru.cache[key]; ok {
 		//如果找到了，就把这个元素移动到最前面
-		this.list.MoveToFront(elem)
+		lru.list.MoveToFront(elem)
 		elem.Value = Pair{key: key, value: value}
 	} else {
 		//如果没有找到
-		if this.list.Len() >= this.capacity {
+		if lru.list.Len() >= lru.capacity {
 			//如果超出了容量，就删除最后一个元素
 			//先从cache中删除
 			//再从list中删除
-			delete(this.cache, this.list.Back().Value.(Pair).key)
-			this.list.Remove(this.list.Back())
+			delete(lru.cache, lru.list.Back().Value.(Pair).key)
+			lru.list.Remove(lru.list.Back())
 		}
 		//然后把新元素插入到最前面
 		//更新cache
-		this.list.PushFront(Pair{key: key, value: value})
-		this.cache[key] = this.list.Front()
+		lru.list.PushFront(Pair{key: key, value: value})
+		lru.cache[key] = lru.list.Front()
 	}
+}
+
+// Remove removes a key from the cache if it exists.
+// Returns true if the key was found and removed, false otherwise.
+// O(1)
+func (lru *LRUCache) Remove(key int) bool {
+	if elem, ok := lru.cache[key]; ok {
+		// Remove from the linked list
+		lru.list.Remove(elem)
+		// Remove from the cache map
+		delete(lru.cache, key)
+		return true
+	}
+	return false
 }
