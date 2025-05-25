@@ -58,6 +58,7 @@ func pushDown(p, s, t int) {
 		d[p<<1|1] += b[p] * int64(t-m)
 		b[p<<1] += b[p]
 		b[p<<1|1] += b[p]
+
 		b[p] = 0
 	}
 }
