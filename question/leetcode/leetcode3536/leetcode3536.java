@@ -6,7 +6,7 @@ class Solution {
         Arrays.sort(digits);
 
         int max1 = digits[digits.length - 1] - '0';
-        int max2 = digits[digits.length -2] - '0':
+        int max2 = digits[digits.length - 2] - '0';
 
         return max1 * max2;
     }

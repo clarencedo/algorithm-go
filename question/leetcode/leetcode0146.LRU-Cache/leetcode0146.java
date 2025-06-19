@@ -1,5 +1,7 @@
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 class LRUCache {
     private final int capacity;
@@ -24,68 +26,37 @@ class LRUCache {
     }
 }
 
-class LRUCacheII {
+class LRU {
     private final int capacity;
     private final LinkedList<Integer> list;
+    private final HashMap<Integer, Integer> map;
 
-    public LRUCacheII(int capacity) {
+    public LRU(int capacity) {
         this.capacity = capacity;
         this.list = new LinkedList<Integer>();
-    }
-
-    public void put(int key, int value) {
-        if (list.size() < capacity) {
-            list.addFirst(key);
-        } else {
-            list.removeLast();
-            list.addFirst(key);
-        }
+        this.map = new HashMap<Integer, Integer>();
     }
 
     public int get(int key) {
-        var v = list.indexOf(key);
-        if (v == -1) {
+        if (!map.containsKey(key)) {
             return -1;
         }
-        list.remove(v);
+
+        list.remove((Integer) key);
         list.addFirst(key);
-        return v;
-    }
-}
-
-class LRUListCache<E> {
-    private final int maxSize;
-    private final LinkedList<E> list = new LinkedList<>();
-
-    public LRUListCache(int maxSize) {
-        this.maxSize = maxSize;
+        return map.get(key);
     }
 
-    public void add(E e) {
-        if (list.size() < maxSize) {
-            list.addFirst(e);
-        } else {
-            list.removeLast();
-            list.addFirst(e);
+    public void put(int key, int val) {
+        if (map.containsKey(key)) {
+            list.remove((Integer) key);
+        } else if (list.size() == capacity) {
+            int oldKey = list.removeLast();
+            map.remove(oldKey);
         }
+
+        list.addFirst(key);
+        map.put(key, val);
     }
 
-    public E get(int index) {
-        E e = list.get(index);
-        list.remove(e);
-        add(e);
-        return e;
-    }
-
-    @Override
-    public String toString() {
-        return list.toString();
-    }
 }
-
-/**
- * Your LRUCache object will be instantiated and called as such:
- * LRUCache obj = new LRUCache(capacity);
- * int param_1 = obj.get(key);
- * obj.put(key,value);
- */
