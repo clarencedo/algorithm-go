@@ -1,5 +1,7 @@
 # [426.将二叉搜索树转化为排序的双向链表](https://leetcode.cn/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/description/)
 
+# [426. Convert Binary Search Tree to Sorted Doubly Linked List 🔒](https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list)
+
 ## 题目
 
 将一个 **二叉搜索树** 就地转化为一个 **已排序的双向循环链表** 。

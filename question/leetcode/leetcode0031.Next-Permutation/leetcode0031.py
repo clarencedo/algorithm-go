@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         """
@@ -28,4 +31,4 @@ class Solution:
 
         # nums[i+1:] = nums[i+1:][::-1]
 
-        nums[i+1:] = reversed(nums[i+1:])
+        nums[i + 1 :] = reversed(nums[i + 1 :])

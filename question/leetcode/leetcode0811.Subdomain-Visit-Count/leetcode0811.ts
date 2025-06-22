@@ -17,5 +17,9 @@ function subdomainVisits(cpdomains: string[]): string[] {
 		ans.push(`${freq} ${domain}`);
 	}
 
-	return ans;
+	return [...countMap].map(([domain, freq]) => {
+		return `${freq} ${domain}`;
+	});
+
+	// return ans;
 };
