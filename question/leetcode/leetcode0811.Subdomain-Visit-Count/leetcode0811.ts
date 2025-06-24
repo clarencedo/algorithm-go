@@ -13,13 +13,10 @@ function subdomainVisits(cpdomains: string[]): string[] {
 		}
 	}
 
-	for (const [domain, freq] of countMap.entries()) {
-		ans.push(`${freq} ${domain}`);
-	}
+	// for (const [domain, freq] of countMap.entries()) {
+	// 	ans.push(`${freq} ${domain}`);
+	// }
 
-	return [...countMap].map(([domain, freq]) => {
-		return `${freq} ${domain}`;
-	});
-
+	return [...countMap].map(([domain, freq]) => `${freq} ${domain}`)
 	// return ans;
 };
